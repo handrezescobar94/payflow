@@ -17,10 +17,16 @@ def health_check(request):
         }
     )
 
-class PaymentCreateView(generics.CreateAPIView):
+class PaymentListCreateView(generics.ListCreateAPIView):
     """
     API view to handle the creation of Payment instances.
     """
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
 	
+class PaymentDetailView(generics.RetrieveAPIView):
+    """
+    API view to retrieve a specific Payment instance by its ID.
+    """
+    queryset = Payment.objects.all()
+    serializer_class = PaymentSerializer
